@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display with AJAX</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add a CSS class for smooth image transitions */
+        .smooth-image {
+            opacity: 0; /* Initially hide the image */
+            transition: opacity 0.3s ease; /* Smooth transition */
+        }
+
+        /* Show the image when it's loaded */
+        .smooth-image.loaded {
+            opacity: 1;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Function to fetch and display image
+            function getImage() {
+                $.ajax({
+                    type: "GET",
+                    url: "https://ghozghoz.loca.lt/media/show", // Change this to the path of your server script
+                    dataType: "json",
+                    success: function(response){
+                        var imagePath = response.path;
+                        // Create a new image element
+                        var newImage = $("<img>");
+                        // Set image source and classes
+                        newImage.attr("src", imagePath);
+                        newImage.attr("alt", "Image");
+                        newImage.addClass("mx-auto max-w-full h-auto border border-gray-300 smooth-image");
+                        // Append the new image to the container
+                        $("#imageContainer").html(newImage);
+                        // Add loaded class after a short delay to trigger transition
+                        setTimeout(function() {
+                            newImage.addClass("loaded");
+                        }, 100);
+                    },
+                    error: function(xhr, status, error){
+                        console.error("Error: " + error);
+                    }
+                });
+            }
+
+            // Set interval to fetch image every 0.8 seconds
+            setInterval(getImage, 1000);
+        });
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation bar -->
+    <nav class="bg-gray-800 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-white font-bold mx-auto">Image Display </div>
+            <!-- You can add more navigation links here if needed -->
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold text-center mb-4">Video</h2>
+        <div id="imageContainer" class="mx-auto max-w-full h-auto"></div>
+    </div>
+</body>
+</html>
