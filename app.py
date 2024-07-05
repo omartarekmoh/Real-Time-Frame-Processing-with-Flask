@@ -82,13 +82,13 @@ def receive_frames(device_id):
     # Process the image with YOLO model
     result = model(img)
     frame, fire, x, y, w = _model(result, img)
+    camera_frames[device_id] = frame
 
     # Only save frames where fire is detected
     if fire:
         # Get SQLite connection and cursor for the current thread
         conn = get_db_connection()
         cursor = get_db_cursor(conn)
-        camera_frames[device_id] = frame
 
         try:
             # Store the processed frame in SQLite database
