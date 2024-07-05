@@ -44,8 +44,6 @@ Here is a preview of the project in action:
 
 ![Project Demo](videos/working.gif)
 
-> Note: If you do not have the gif version of the video, you can convert it using tools like [Giphy](https://giphy.com/create/gifmaker) or [ezgif](https://ezgif.com/video-to-gif).
-
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
