@@ -1,15 +1,17 @@
 import cv2
 import requests
 import json
-from twilio.rest import Client
 import requests
-from message import send_location_sms
 
 # Flask server URL
 flask_server_url = "http://127.0.0.1:8000/receive_frames/device1"  # Replace with your Flask server's IP address
-cap = cv2.VideoCapture(0)  # Initialize video capture object for the default camera
+video_source = 0  # Use 0 for the default webcam, or provide a video file path
+cap = cv2.VideoCapture(
+    video_source
+)  # Initialize video capture object for the default camera
 
 sentMessage = False
+
 
 def send_frames_to_flask():
     """
@@ -40,10 +42,10 @@ def send_frames_to_flask():
                 # Parse the JSON response
                 try:
                     response_data = response.json()
-                    x = response_data.get('x', None)
-                    y = response_data.get('y', None)
-                    w = response_data.get('w', None)  # Detected object width
-                    fire = response_data.get('fire', None)
+                    x = response_data.get("x", None)
+                    y = response_data.get("y", None)
+                    w = response_data.get("w", None)  # Detected object width
+                    fire = response_data.get("fire", None)
 
                     if fire == 0:
                         print(f"x: {x}, y: {y}, w: {w}, fire: {fire}")
@@ -75,6 +77,7 @@ def send_frames_to_flask():
                     print("Failed to decode JSON response")
         except Exception as e:
             print("Error sending frame to Flask server:", str(e))
+
 
 if __name__ == "__main__":
     send_frames_to_flask()  # Start capturing and sending frames to the Flask server
