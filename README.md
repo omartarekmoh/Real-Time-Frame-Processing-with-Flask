@@ -44,6 +44,20 @@ Here is a preview of the project in action:
 
 ![Project Demo](videos/working.gif)
 
+## Additional Scripts
+
+### send.py
+
+If you want to send photos to the server, you need to run the `send.py` script. This script allows you to send images to the server for processing.
+
+### message.py
+
+The `message.py` script handles sending notifications via SMS. It uses the Twilio API to send messages when certain conditions are met during frame processing.
+
+### database.py
+
+The `database.py` script is used to interact with the SQLite database. It saves detected images and other relevant data for later use, such as relabeling and retraining.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
