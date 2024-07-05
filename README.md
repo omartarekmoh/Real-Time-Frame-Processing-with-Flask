@@ -1,59 +1,74 @@
 # Real-Time Frame Processing with Flask
 
-This project captures frames from a webcam, processes them to detect fire, and sends the processed frames to a Flask server.
+## Overview
 
-## Files
+This project demonstrates real-time frame processing using Flask. It integrates computer vision techniques to process frames from a video stream in real-time. This can be useful for various applications such as object detection, motion tracking, and more.
 
-- `app.py`: Captures frames from the webcam and sends them to the Flask server.
-- `process.py`: Contains the function to process the frames and detect fire.
-- `send.py`: (Duplicate of app.py) Captures and sends frames to the Flask server.
+## Features
+
+- **Real-Time Processing**: Processes video frames in real-time.
+- **Flask Integration**: Uses Flask to create a web interface for video stream display.
+- **Easy Setup**: Simple to install and run with minimal dependencies.
+- **Extensible**: Easily extend the processing logic to include custom algorithms.
+
+## Demo
+
+<video width="600" controls autoplay>
+  <source src="videos/working.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+Watch the [demo video](videos/working.mp4) to see the project in action.
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository:**
+
     ```bash
     git clone https://github.com/omartarekmoh/Real-Time-Frame-Processing-with-Flask.git
     cd Real-Time-Frame-Processing-with-Flask
     ```
 
-2. Install the required libraries:
+2. **Create and activate a virtual environment:**
+
     ```bash
-    pip install opencv-python requests numpy cvzone Flask ultralytics
+    python3 -m venv venv
+    source venv/bin/activate
     ```
 
-## Usage
+3. **Install dependencies:**
 
-1. Ensure you have a Flask server running to receive the frames.
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-2. To start the server, run:
+4. **Run the application:**
+
     ```bash
     python app.py
     ```
 
-3. To start capturing and sending frames, run:
-    ```bash
-    python send.py
-    ```
+## Usage
 
-4. Make sure CUDA is available on your system to leverage GPU acceleration for the YOLO model.
+1. After running the application, open your web browser and go to `http://127.0.0.1:5000/`.
+2. You should see the video stream being processed in real-time.
 
-5. If you want to change the camera used, edit `send.py` and change the number in the following line to the index of your desired camera:
-    ```python
-    cap = cv2.VideoCapture(0)
-    ```
+## Project Structure
 
-## Project Overview
+- `app.py`: The main Flask application file.
+- `static/`: Contains static files like CSS and JavaScript.
+- `templates/`: Contains HTML templates for the web interface.
+- `videos/`: Contains demo videos and other video-related resources.
 
-### app.py / send.py
+## Contributing
 
-- These scripts capture frames from the default webcam.
-- The captured frames are encoded as JPEG images.
-- The encoded frames are sent to a specified Flask server URL.
+Contributions are welcome! Please open an issue or submit a pull request if you have any improvements or suggestions.
 
-### process.py
+## License
 
-- This script contains a function to process the frames and detect fire.
-- It uses `cvzone` and `cv2` for image processing.
-- Detected fire areas are highlighted with a rectangle and labeled with a confidence score.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-This project demonstrates real-time frame capture, processing, and transmission using OpenCV and Flask.
+## Acknowledgments
+
+- Special thanks to all contributors and the open-source community.
+- This project was inspired by various real-time processing applications and frameworks.
