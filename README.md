@@ -1,74 +1,63 @@
 # Real-Time Frame Processing with Flask
 
-## Overview
+## Project Overview
 
-This project demonstrates real-time frame processing using Flask. It integrates computer vision techniques to process frames from a video stream in real-time. This can be useful for various applications such as object detection, motion tracking, and more.
+Real-Time Frame Processing with Flask is a web application that processes video frames in real-time using Flask. This project demonstrates how to handle and manipulate video streams efficiently with Python and Flask.
 
 ## Features
 
-- **Real-Time Processing**: Processes video frames in real-time.
-- **Flask Integration**: Uses Flask to create a web interface for video stream display.
-- **Easy Setup**: Simple to install and run with minimal dependencies.
-- **Extensible**: Easily extend the processing logic to include custom algorithms.
-
-## Demo
-
-<video width="600" controls autoplay>
-  <source src="videos/working.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-Watch the [demo video](videos/working.mp4) to see the project in action.
+- Real-time frame processing
+- Easy integration with web applications
+- Customizable processing logic
 
 ## Installation
 
-1. **Clone the repository:**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/omartarekmoh/Real-Time-Frame-Processing-with-Flask.git
+   cd Real-Time-Frame-Processing-with-Flask
+   ```
 
-    ```bash
-    git clone https://github.com/omartarekmoh/Real-Time-Frame-Processing-with-Flask.git
-    cd Real-Time-Frame-Processing-with-Flask
-    ```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+   ```
 
-2. **Create and activate a virtual environment:**
-
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-
-3. **Install dependencies:**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. **Run the application:**
-
-    ```bash
-    python app.py
-    ```
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
-1. After running the application, open your web browser and go to `http://127.0.0.1:5000/`.
-2. You should see the video stream being processed in real-time.
+1. Run the Flask application:
+   ```bash
+   flask run
+   ```
 
-## Project Structure
+2. Open your web browser and navigate to `http://127.0.0.1:5000`.
 
-- `app.py`: The main Flask application file.
-- `static/`: Contains static files like CSS and JavaScript.
-- `templates/`: Contains HTML templates for the web interface.
-- `videos/`: Contains demo videos and other video-related resources.
+## Demonstration
+
+Here is a preview of the project in action:
+
+![Project Demo](videos/working.gif)
+
+> Note: If you do not have the gif version of the video, you can convert it using tools like [Giphy](https://giphy.com/create/gifmaker) or [ezgif](https://ezgif.com/video-to-gif).
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request if you have any improvements or suggestions.
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## Contact
 
-- Special thanks to all contributors and the open-source community.
-- This project was inspired by various real-time processing applications and frameworks.
+For any inquiries or issues, please open an issue on the [GitHub repository](https://github.com/omartarekmoh/Real-Time-Frame-Processing-with-Flask/issues).
+
+---
+
+Enjoy processing your frames in real-time with Flask!
