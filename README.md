@@ -67,6 +67,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
+omartarek
 
 For any inquiries or issues, please open an issue on the [GitHub repository](https://github.com/omartarekmoh/Real-Time-Frame-Processing-with-Flask/issues).
 
